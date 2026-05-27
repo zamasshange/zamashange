@@ -51,12 +51,12 @@ export function ServicesSection() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
               <motion.div 
                 className="w-2.5 h-2.5 bg-[#e63527] rounded-sm"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity, repeatDelay: 5 }}
+                animate={{ scale: [1, 1.12, 1] }}
+                transition={{ duration: 2.8, repeat: Infinity, repeatDelay: 4.5 }}
               />
               <span className="text-white text-sm font-medium">Services</span>
             </motion.div>
@@ -66,7 +66,7 @@ export function ServicesSection() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.05] tracking-[-0.03em]"
             >
               What I{' '}
@@ -79,7 +79,7 @@ export function ServicesSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.75, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="text-white/60 text-base max-w-sm lg:pt-8"
           >
             From full-stack development and UI/UX design to brand strategy, digital marketing, and motion — every discipline united by one creative vision.
@@ -94,7 +94,7 @@ export function ServicesSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.65, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
               className="group py-8 border-b border-white/10 cursor-pointer relative overflow-hidden"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
@@ -104,7 +104,7 @@ export function ServicesSection() {
                 className="absolute inset-0 bg-white/5"
                 initial={{ x: '-100%' }}
                 animate={{ x: hoveredIndex === index ? '0%' : '-100%' }}
-                transition={{ duration: 0.4, ease: [0.25, 0.4, 0.25, 1] }}
+                transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
               />
 
               <div className="flex items-center justify-between relative z-10">
@@ -112,10 +112,10 @@ export function ServicesSection() {
                   <motion.h3 
                     className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-[-0.03em] transition-colors"
                     animate={{ 
-                      x: hoveredIndex === index ? 20 : 0,
+                      x: hoveredIndex === index ? 14 : 0,
                       color: hoveredIndex === index ? '#ffffff' : '#ffffff'
                     }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                   >
                     {service.title}
                   </motion.h3>
@@ -124,9 +124,9 @@ export function ServicesSection() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ 
                       opacity: hoveredIndex === index ? 1 : 0,
-                      x: hoveredIndex === index ? 0 : -20
+                      x: hoveredIndex === index ? 0 : -16
                     }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.45 }}
                   >
                     {service.description}
                   </motion.p>
@@ -138,7 +138,7 @@ export function ServicesSection() {
                       scale: hoveredIndex === index ? 1 : 0,
                       opacity: hoveredIndex === index ? 1 : 0
                     }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.45 }}
                   >
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-white">
                       <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>

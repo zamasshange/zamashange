@@ -58,12 +58,12 @@ export function ContactSection() {
           className="flex items-center gap-2 mb-12"
           initial={{ opacity: 0, x: -20 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.div
             className="w-2.5 h-2.5 bg-[#e63527] rounded-sm"
-            animate={{ scale: [1, 1.2, 1] }}
-            transition={{ duration: 2, repeat: Infinity, repeatDelay: 5 }}
+            animate={{ scale: [1, 1.12, 1] }}
+            transition={{ duration: 2.8, repeat: Infinity, repeatDelay: 4.5 }}
           />
           <span className="text-foreground text-sm font-medium">Contact</span>
         </motion.div>
@@ -73,7 +73,7 @@ export function ContactSection() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col justify-center"
           >
             <div className="overflow-hidden mb-6">
@@ -105,7 +105,7 @@ export function ContactSection() {
               className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.75, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
             >
               Ready to transform your vision into reality? Whether it&apos;s a new brand, 
               a digital product, or a growth strategy — let&apos;s create something 
@@ -143,8 +143,8 @@ export function ContactSection() {
                   key={item.href}
                   href={item.href}
                   className="group flex items-center gap-4 text-muted-foreground hover:text-foreground transition-colors"
-                  whileHover={{ x: 8 }}
-                  transition={{ duration: 0.25 }}
+                  whileHover={{ x: 6 }}
+                  transition={{ duration: 0.35 }}
                 >
                   <span className="w-9 h-9 rounded-full bg-[#f5f5f4] group-hover:bg-[#e63527] group-hover:text-white transition-colors flex items-center justify-center">
                     {item.icon}
@@ -162,9 +162,9 @@ export function ContactSection() {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="bg-[#111111] rounded-2xl p-8 md:p-10">
+            <div className="bg-[#111111] rounded-[1.75rem] p-8 md:p-10 shadow-[0_20px_60px_rgba(17,17,17,0.12)]">
               {isSubmitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -175,7 +175,7 @@ export function ContactSection() {
                     className="w-16 h-16 rounded-full bg-[#e63527]/20 flex items-center justify-center mx-auto mb-6"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+                    transition={{ type: 'spring', stiffness: 180, damping: 16 }}
                   >
                     <svg className="w-8 h-8 text-[#e63527]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <motion.path
@@ -202,7 +202,7 @@ export function ContactSection() {
                       key={field.id}
                       initial={{ opacity: 0, y: 20 }}
                       animate={isInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ delay: 0.3 + index * 0.1 }}
+                      transition={{ duration: 0.55, delay: 0.3 + index * 0.1, ease: [0.22, 1, 0.36, 1] }}
                     >
                       <label htmlFor={field.id} className="block text-sm font-medium text-white/70 mb-2">
                         {field.label}
@@ -238,7 +238,7 @@ export function ContactSection() {
                       value={formState.projectType}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-white/8 border border-white/10 text-white focus:border-white/40 focus:outline-none transition-all appearance-none cursor-pointer"
+                      className="w-full px-4 py-3 rounded-xl bg-white/8 border border-white/10 text-white focus:border-white/40 focus:outline-none transition-all duration-300 appearance-none cursor-pointer"
                       style={{ backgroundColor: 'rgba(255,255,255,0.05)' }}
                     >
                       <option value="" disabled style={{ background: '#1a1a1a' }}>Select a project type</option>
@@ -267,7 +267,7 @@ export function ContactSection() {
                       onBlur={() => setFocusedField(null)}
                       required
                       rows={4}
-                      className={`w-full px-4 py-3 rounded-xl bg-white/8 border text-white placeholder:text-white/30 focus:outline-none transition-all resize-none ${
+                      className={`w-full px-4 py-3 rounded-xl bg-white/8 border text-white placeholder:text-white/30 focus:outline-none transition-all duration-300 resize-none ${
                         focusedField === 'message' ? 'border-white/40 bg-white/12' : 'border-white/10'
                       }`}
                       placeholder="Tell me about your project..."
@@ -279,8 +279,8 @@ export function ContactSection() {
                     type="submit"
                     disabled={isSubmitting}
                     className="w-full py-4 px-8 rounded-full bg-[#e63527] text-white font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2 hover:bg-[#d42f22]"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                    whileHover={{ scale: 1.015 }}
+                    whileTap={{ scale: 0.985 }}
                   >
                     {isSubmitting ? (
                       <>

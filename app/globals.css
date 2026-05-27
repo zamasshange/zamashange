@@ -60,6 +60,12 @@
   }
   body {
     @apply bg-white text-foreground;
+    position: relative;
+    overflow-x: hidden;
+    background:
+      radial-gradient(circle at top left, rgba(230, 53, 39, 0.05), transparent 30%),
+      radial-gradient(circle at top right, rgba(17, 17, 17, 0.05), transparent 28%),
+      linear-gradient(180deg, #fbfaf8 0%, #ffffff 24%, #f6f2ee 100%);
   }
   html {
     scroll-behavior: smooth;
@@ -83,6 +89,37 @@ html.lenis, html.lenis body {
   overflow: hidden;
 }
 
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.16;
+  background-image: radial-gradient(rgba(17, 17, 17, 0.12) 0.6px, transparent 0.6px);
+  background-size: 4px 4px;
+  mix-blend-mode: soft-light;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: -10vh -10vw;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(230, 53, 39, 0.1), transparent 22%),
+    radial-gradient(circle at 80% 18%, rgba(17, 17, 17, 0.06), transparent 20%),
+    radial-gradient(circle at 50% 85%, rgba(230, 53, 39, 0.06), transparent 24%);
+  filter: blur(28px);
+  animation: ambientShift 24s ease-in-out infinite;
+}
+
+main, header, footer {
+  position: relative;
+  z-index: 1;
+}
+
 /* Logo marquee animation */
 @keyframes marquee {
   0% {
@@ -95,6 +132,32 @@ html.lenis, html.lenis body {
 
 .animate-marquee {
   animation: marquee 30s linear infinite;
+}
+
+@keyframes ambientShift {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -1.5%, 0) scale(1.03);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+.float-slow {
+  animation: floatSlow 18s ease-in-out infinite;
+}
+
+.section-fade {
+  will-change: transform, opacity;
 }
 
 /* Custom scrollbar */

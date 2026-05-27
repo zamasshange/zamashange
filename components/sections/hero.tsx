@@ -12,9 +12,9 @@ const textReveal: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.9,
-      delay: i * 0.12,
-      ease: [0.25, 0.4, 0.25, 1] as [number, number, number, number],
+      duration: 1.05,
+      delay: i * 0.14,
+      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
     },
   }),
 }
@@ -25,9 +25,9 @@ const fadeUp: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
-      delay: 0.7 + i * 0.1,
-      ease: [0.25, 0.4, 0.25, 1] as [number, number, number, number],
+      duration: 0.75,
+      delay: 0.82 + i * 0.12,
+      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
     },
   }),
 }
@@ -38,7 +38,7 @@ export function HeroSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentWordIndex((prev) => (prev + 1) % heroWords.length)
-    }, 2500)
+    }, 3200)
     return () => clearInterval(interval)
   }, [])
 
@@ -47,17 +47,22 @@ export function HeroSection() {
       {/* Background Image — full bleed, no rounding */}
       <div className="absolute inset-0">
         <motion.img
-          initial={{ scale: 1.08, opacity: 0 }}
-          animate={{ scale: 1, opacity: 0.45 }}
-          transition={{ duration: 1.8, ease: [0.25, 0.4, 0.25, 1] }}
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={{ scale: 1.03, opacity: 0.38 }}
+          transition={{ duration: 2.2, ease: [0.22, 1, 0.36, 1] }}
           src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80"
           alt="Team working"
           className="w-full h-full object-cover object-center"
         />
+        <motion.div
+          className="absolute -right-20 top-16 h-72 w-72 rounded-full bg-[#e63527]/15 blur-3xl"
+          animate={{ y: [0, 14, 0], x: [0, -6, 0] }}
+          transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
+        />
         {/* Left fade so text reads cleanly */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#111111]/95 via-[#111111]/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#111111]/96 via-[#111111]/65 to-transparent" />
         {/* Bottom fade for bottom content */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/70 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/72 via-transparent to-transparent" />
       </div>
 
       {/* Content */}
@@ -68,13 +73,13 @@ export function HeroSection() {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
             className="flex items-center gap-2 mb-10"
           >
             <motion.div
               className="w-3 h-3 bg-[#e63527] rounded-sm"
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+              animate={{ scale: [1, 1.15, 1] }}
+              transition={{ duration: 2.8, repeat: Infinity, repeatDelay: 2.5 }}
             />
             <span className="text-white/80 text-sm font-medium tracking-wide">Next-Gen Design Agency</span>
           </motion.div>
@@ -124,7 +129,7 @@ export function HeroSection() {
                           opacity: currentWordIndex === index ? 1 : 0,
                           y: currentWordIndex === index ? 0 : (currentWordIndex > index ? -30 : 30),
                         }}
-                        transition={{ duration: 0.45, ease: [0.25, 0.4, 0.25, 1] }}
+                        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                       >
                         {word}
                       </motion.span>
@@ -191,12 +196,12 @@ export function HeroSection() {
                 className="flex items-center gap-3"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.4, duration: 0.5 }}
+                transition={{ delay: 1.6, duration: 0.55 }}
               >
                 <Link href="#work">
                   <motion.span
                     className="flex items-center gap-2 px-6 py-3 bg-[#e63527] text-white rounded-full text-sm font-semibold cursor-pointer"
-                    whileHover={{ scale: 1.04, backgroundColor: '#d42f22' }}
+                    whileHover={{ scale: 1.03, backgroundColor: '#d42f22' }}
                     whileTap={{ scale: 0.97 }}
                     transition={{ duration: 0.2 }}
                   >
@@ -209,7 +214,7 @@ export function HeroSection() {
                 <Link href="#contact">
                   <motion.span
                     className="flex items-center gap-2 px-6 py-3 border border-white/30 text-white rounded-full text-sm font-semibold cursor-pointer"
-                    whileHover={{ scale: 1.04, backgroundColor: 'rgba(255,255,255,0.08)' }}
+                    whileHover={{ scale: 1.03, backgroundColor: 'rgba(255,255,255,0.08)' }}
                     whileTap={{ scale: 0.97 }}
                     transition={{ duration: 0.2 }}
                   >
@@ -233,7 +238,7 @@ export function HeroSection() {
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+            transition={{ duration: 2.1, repeat: Infinity, ease: 'easeInOut' }}
             className="w-6 h-10 rounded-full border border-white/25 flex items-start justify-center p-2"
           >
             <div className="w-1 h-2 bg-white/50 rounded-full" />

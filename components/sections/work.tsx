@@ -59,11 +59,12 @@ export function WorkSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
               <motion.div 
                 className="w-2.5 h-2.5 bg-[#e63527] rounded-sm"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity, repeatDelay: 5 }}
+                animate={{ scale: [1, 1.12, 1] }}
+                transition={{ duration: 2.8, repeat: Infinity, repeatDelay: 4.5 }}
               />
               <span className="text-foreground text-sm font-medium">Selected work</span>
             </motion.div>
@@ -73,7 +74,7 @@ export function WorkSection() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-[1.05] tracking-[-0.03em] mb-6"
             >
               Featured projects
@@ -85,7 +86,7 @@ export function WorkSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.75, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="text-muted-foreground text-base max-w-lg"
             >
               We don&apos;t just build websites; we create digital experiences that resonate with users and drive long-term business growth.
@@ -93,23 +94,23 @@ export function WorkSection() {
           </div>
 
           {/* Right - Zama's Photo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative flex-shrink-0"
-          >
-            <div className="relative w-32 h-32 lg:w-40 lg:h-40 rounded-2xl overflow-hidden border-4 border-[#e63527]/20">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.85, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              className="relative flex-shrink-0"
+            >
+            <div className="relative w-32 h-32 lg:w-40 lg:h-40 rounded-[1.4rem] overflow-hidden border border-[#e63527]/20 bg-[#111111] shadow-[0_16px_40px_rgba(17,17,17,0.08)]">
               <Image
                 src="/images/zama-shange.jpg"
                 alt="Zama Shange"
                 fill
-                className="object-cover object-top"
+                className="object-cover object-[center_18%] opacity-95 transition-transform duration-700"
               />
             </div>
             <motion.div
-              className="absolute -bottom-2 -right-2 bg-[#e63527] text-white text-xs font-medium px-3 py-1.5 rounded-full"
+              className="absolute -bottom-2 -right-2 bg-[#e63527] text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg"
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -135,7 +136,7 @@ export function WorkSection() {
             >
               {/* Project Card */}
               <div 
-                className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-5"
+                className="relative aspect-[4/3] rounded-[1.5rem] overflow-hidden mb-5"
                 style={{ background: project.gradient }}
               >
                 {/* Abstract Design Elements */}
@@ -144,25 +145,25 @@ export function WorkSection() {
                   <motion.div
                     className="absolute w-32 h-32 lg:w-48 lg:h-48 rounded-full bg-white/10"
                     animate={{ 
-                      scale: hoveredId === project.id ? 1.2 : 1,
-                      rotate: hoveredId === project.id ? 45 : 0,
+                      scale: hoveredId === project.id ? 1.12 : 1,
+                      rotate: hoveredId === project.id ? 24 : 0,
                     }}
-                    transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
+                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                   />
                   <motion.div
                     className="absolute w-24 h-24 lg:w-36 lg:h-36 rounded-xl bg-white/20 rotate-12"
                     animate={{ 
-                      scale: hoveredId === project.id ? 1.1 : 1,
-                      rotate: hoveredId === project.id ? 24 : 12,
+                      scale: hoveredId === project.id ? 1.06 : 1,
+                      rotate: hoveredId === project.id ? 18 : 12,
                     }}
-                    transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
+                    transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
                   />
                   <motion.div
                     className="absolute w-16 h-16 lg:w-24 lg:h-24 rounded-full bg-white/30"
                     animate={{ 
-                      scale: hoveredId === project.id ? 1.3 : 1,
+                      scale: hoveredId === project.id ? 1.12 : 1,
                     }}
-                    transition={{ duration: 0.4, ease: [0.25, 0.4, 0.25, 1] }}
+                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                   />
                   
                   {/* Project Title Overlay */}
@@ -170,9 +171,9 @@ export function WorkSection() {
                     className="absolute text-white text-4xl lg:text-6xl font-bold opacity-10"
                     animate={{ 
                       opacity: hoveredId === project.id ? 0.2 : 0.1,
-                      scale: hoveredId === project.id ? 1.1 : 1,
+                      scale: hoveredId === project.id ? 1.06 : 1,
                     }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.5 }}
                   >
                     {project.title.charAt(0)}
                   </motion.span>
@@ -180,16 +181,16 @@ export function WorkSection() {
                 
                 {/* Hover Overlay with View Button */}
                 <motion.div
-                  className="absolute inset-0 flex items-center justify-center bg-black/20"
+                  className="absolute inset-0 flex items-center justify-center bg-black/15 backdrop-blur-[2px]"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: hoveredId === project.id ? 1 : 0 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.45 }}
                 >
                   <motion.div
                     className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-lg"
                     initial={{ scale: 0 }}
                     animate={{ scale: hoveredId === project.id ? 1 : 0 }}
-                    transition={{ duration: 0.3, delay: 0.1 }}
+                    transition={{ duration: 0.35, delay: 0.05 }}
                   >
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-foreground">
                       <path d="M5 15L15 5M15 5H8M15 5V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -199,7 +200,7 @@ export function WorkSection() {
 
                 {/* Category Badge */}
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-medium">
+                  <span className="px-3 py-1.5 rounded-full bg-white/18 backdrop-blur-md text-white text-xs font-medium border border-white/10">
                     {project.category}
                   </span>
                 </div>
@@ -210,7 +211,7 @@ export function WorkSection() {
                 <motion.h3 
                   className="text-xl md:text-2xl font-medium text-foreground"
                   animate={{ x: hoveredId === project.id ? 8 : 0 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                 >
                   {project.title}
                 </motion.h3>
@@ -219,7 +220,7 @@ export function WorkSection() {
                     x: hoveredId === project.id ? 0 : 10,
                     opacity: hoveredId === project.id ? 1 : 0,
                   }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.45 }}
                 >
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-[#e63527]">
                     <path d="M3 8H13M13 8L8 3M13 8L8 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -235,7 +236,7 @@ export function WorkSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
           className="mt-16 pt-8 border-t border-dashed border-border flex justify-center"
         >
           <Link href="#all-cases">
