@@ -11,12 +11,12 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Zama Shange | Next-Gen Design Agency',
-  description: 'Next-Gen Design Agency for Growing Brands. Branding, Mobile & Web App Design for Startups and Giants.',
-  keywords: ['design agency', 'branding', 'web design', 'mobile design', 'UI/UX', 'development'],
+  title: 'Zama Shange | Founder of Sonke',
+  description: 'Premium founder portfolio for Zama Shange, founder of Sonke, designer, developer, and creative builder from South Africa.',
+  keywords: ['Zama Shange', 'Sonke', 'founder portfolio', 'creative builder', 'designer', 'developer', 'South Africa'],
   openGraph: {
-    title: 'Zama Shange | Next-Gen Design Agency',
-    description: 'Next-Gen Design Agency for Growing Brands.',
+    title: 'Zama Shange | Founder of Sonke',
+    description: 'Building systems, brands, and digital experiences from South Africa to the world.',
     type: 'website',
   },
 }
