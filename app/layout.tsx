@@ -15,10 +15,19 @@ export const metadata: Metadata = {
   title: 'Zama Shange | Founder of Sonke, BDL Corp & Burdolar',
   description: 'Premium founder portfolio for Zama Shange, founder of Sonke, BDL Corp (Burdolar), designer, developer, and creative builder from South Africa.',
   keywords: ['Zama', 'Zama Shange', 'Sonke', 'BDL Corp', 'Burdolar', 'founder portfolio', 'creative builder', 'designer', 'developer', 'South Africa'],
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: 'Zama Shange | Founder of Sonke, BDL Corp & Burdolar',
     description: 'Building systems, brands, and digital experiences from South Africa to the world.',
     type: 'website',
+    url: 'https://www.zamashange.co.za',
+    siteName: 'Zama Shange',
+  },
+  twitter: {
+    card: 'summary_large_image',
   },
   icons: {
     icon: '/favicon.ico',
