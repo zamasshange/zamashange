@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { SmoothScroll } from '@/components/smooth-scroll'
+import logoImage from '@/app/zama_shange_logo.png'
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -11,13 +12,17 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Zama Shange | Founder of Sonke',
-  description: 'Premium founder portfolio for Zama Shange, founder of Sonke, designer, developer, and creative builder from South Africa.',
-  keywords: ['Zama Shange', 'Sonke', 'founder portfolio', 'creative builder', 'designer', 'developer', 'South Africa'],
+  title: 'Zama Shange | Founder of Sonke, BDL Corp & Burdolar',
+  description: 'Premium founder portfolio for Zama Shange, founder of Sonke, BDL Corp (Burdolar), designer, developer, and creative builder from South Africa.',
+  keywords: ['Zama', 'Zama Shange', 'Sonke', 'BDL Corp', 'Burdolar', 'founder portfolio', 'creative builder', 'designer', 'developer', 'South Africa'],
   openGraph: {
-    title: 'Zama Shange | Founder of Sonke',
+    title: 'Zama Shange | Founder of Sonke, BDL Corp & Burdolar',
     description: 'Building systems, brands, and digital experiences from South Africa to the world.',
     type: 'website',
+  },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-icon.png',
   },
 }
 

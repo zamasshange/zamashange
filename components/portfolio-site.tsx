@@ -90,9 +90,7 @@ const stagger: Variants = {
 function LogoMark({ light = false }: { light?: boolean }) {
   return (
     <span className="inline-flex items-center gap-3">
-      <span className={`grid h-11 w-11 place-items-center overflow-hidden rounded-xl ${light ? 'bg-white' : 'bg-[#101411]'}`}>
-        <Image src={logoImage} alt="Zama Shange logo" className="h-8 w-8 object-contain" priority />
-      </span>
+      <Image src={logoImage} alt="Zama Shange logo" className={`h-11 w-11 object-contain ${light ? '' : ''}`} priority />
       <span className="text-[clamp(1.75rem,3vw,2.125rem)] font-semibold leading-none tracking-[-0.03em]">Zama</span>
     </span>
   )
