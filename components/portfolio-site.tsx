@@ -15,11 +15,11 @@ const contact = {
 }
 
 const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Sonke', href: '#sonke' },
-  { label: 'BDL Corp', href: '#bdl-corp' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Sonke', href: '/sonke' },
+  { label: 'BDL Corp', href: '/bdl-corp' },
+  { label: 'Contact', href: '/contact' },
 ]
 
 const image = {
@@ -54,9 +54,9 @@ const story = [
 ]
 
 const caseStudies = [
-  { tag: 'Flagship', title: 'Sonke: modern digital platform and creative ecosystem' },
-  { tag: 'Foundation', title: 'BDL Corp: underground creative initiative and startup phase' },
-  { tag: 'Media', title: 'BDL News: digital broadcasting branch and learning chapter' },
+  { tag: 'Flagship', title: 'Sonke: AI tools, student resources, and creative systems', href: '/sonke' },
+  { tag: 'Foundation', title: 'BDL Corp: Burdolar creative initiative and startup phase', href: '/bdl-corp' },
+  { tag: 'Media', title: 'BDL News: digital broadcasting branch and learning chapter', href: '/bdl-news' },
 ]
 
 const insights = [
@@ -65,12 +65,14 @@ const insights = [
     date: 'June 20, 2026',
     title: 'How early experiments became the foundation for Sonke',
     image: image.insightA,
+    href: '/insights/early-experiments-to-sonke',
   },
   {
     tag: 'Build Log',
     date: '2026',
     title: 'Designing systems, brands, and digital experiences from South Africa',
     image: image.insightB,
+    href: '/insights/designing-from-south-africa',
   },
 ]
 
@@ -107,7 +109,7 @@ function Navigation() {
   return (
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-transparent bg-white/88 backdrop-blur-xl transition-colors">
       <Shell className="flex h-[90px] items-center justify-between max-lg:h-20 max-sm:h-16">
-        <Link href="#home" className="text-[#101411]">
+        <Link href="/" className="text-[#101411]">
           <LogoMark />
         </Link>
 
@@ -123,7 +125,7 @@ function Navigation() {
         <div className="hidden items-center gap-4 lg:flex">
           <a href={`tel:${contact.phone}`} className="text-[15px] text-[#101411] transition-all duration-200 hover:opacity-60">{contact.phoneLabel}</a>
           <a href={`mailto:${contact.email}`} className="text-[15px] text-[#101411] transition-all duration-200 hover:opacity-60">{contact.email}</a>
-          <Link href="#contact" className="rounded-[8px] bg-[#101411] px-6 py-3 text-[15px] font-semibold text-white transition-transform hover:scale-[1.02]">
+          <Link href="/contact" className="rounded-[8px] bg-[#101411] px-6 py-3 text-[15px] font-semibold text-white transition-transform hover:scale-[1.02]">
             Contact now
           </Link>
         </div>
@@ -172,7 +174,7 @@ function HeroSection() {
               <p className="mt-5 max-w-[800px] text-[clamp(1rem,2.5vw,1.25rem)] leading-[1.45] text-[#626262]">
                 Founder of Sonke (2026), designer, developer, and creative builder shaping brands and digital experiences from South Africa to the world.
               </p>
-              <Link href="#sonke" className="mt-8 inline-flex rounded-[8px] bg-[#101411] px-7 py-4 text-[16px] font-semibold text-white transition-transform hover:scale-[1.02] sm:mt-10 sm:px-9 sm:py-5 sm:text-[18px]">
+              <Link href="/sonke" className="mt-8 inline-flex rounded-[8px] bg-[#101411] px-7 py-4 text-[16px] font-semibold text-white transition-transform hover:scale-[1.02] sm:mt-10 sm:px-9 sm:py-5 sm:text-[18px]">
                 Explore Sonke
               </Link>
             </motion.div>
@@ -304,7 +306,7 @@ function StatsAboutSection() {
             <motion.p variants={fadeUp} className="mt-4 max-w-[640px] text-[16px] leading-[1.35] text-[#626262] sm:text-[19px]">
               Zama Shange is a founder, designer, developer, and creative builder whose work connects product thinking with brand, media, and software.
             </motion.p>
-            <Link href="#story" className="mt-8 inline-flex rounded-[8px] bg-[#101411] px-7 py-4 text-[15px] font-semibold text-white transition-transform hover:scale-[1.02] sm:mt-10 sm:px-9 sm:py-5 sm:text-[18px]">
+            <Link href="/about" className="mt-8 inline-flex rounded-[8px] bg-[#101411] px-7 py-4 text-[15px] font-semibold text-white transition-transform hover:scale-[1.02] sm:mt-10 sm:px-9 sm:py-5 sm:text-[18px]">
               More about Zama
             </Link>
           </motion.div>
@@ -340,7 +342,7 @@ function CaseStudiesSection() {
       <Shell>
         <div className="flex flex-col justify-between gap-3 border-b border-[#dedede] pb-10 sm:pb-12 md:flex-row md:items-center">
           <p className="text-[16px] text-[#202020] sm:text-[18px]">Recent case studies</p>
-          <Link href="#contact" className="text-[17px] underline underline-offset-4 sm:text-[19px]">
+          <Link href="/contact" className="text-[17px] underline underline-offset-4 sm:text-[19px]">
             Let's work together <ArrowUpRight className="inline h-4 w-4" />
           </Link>
         </div>
@@ -349,7 +351,7 @@ function CaseStudiesSection() {
           {caseStudies.map((item) => (
             <Link
               key={item.title}
-              href={item.tag === 'Flagship' ? '#sonke-detail' : '#bdl-corp'}
+              href={item.href}
               className="group grid gap-5 border-b border-[#dedede] py-10 md:grid-cols-[1fr_auto] md:items-center"
             >
               <div>
@@ -364,7 +366,7 @@ function CaseStudiesSection() {
         <div id="sonke-detail" className="mt-10 grid gap-5 lg:grid-cols-[0.72fr_1fr] sm:mt-12">
           <motion.div whileHover={{ y: -4 }} className="rounded-[6px] border border-[#dedede] p-5 sm:p-8">
             <h3 className="max-w-[520px] text-[clamp(1.5rem,5vw,1.8rem)] font-normal leading-[1.18] tracking-[-0.035em] text-[#101411]">
-              Sonke is the flagship project: a modern digital platform and creative ecosystem founded in 2026.
+              Sonke is the flagship project: an AI tools directory, student utility platform, career ecosystem, and creative systems brand.
             </h3>
             <div className="mt-12 flex items-center gap-2 text-[15px] text-[#626262] max-lg:mt-10 sm:mt-16 sm:text-[17px]">
               Founded by Zama Shange <Plus className="h-4 w-4 text-[#101411]" />
@@ -372,7 +374,7 @@ function CaseStudiesSection() {
           </motion.div>
           <motion.div whileHover={{ scale: 0.992 }} className="relative min-h-[260px] overflow-hidden rounded-[6px] sm:min-h-[360px]">
             <img src={image.cta} alt="Sonke workspace" className="h-full w-full object-cover" />
-            <Link href="#contact" className="absolute left-1/2 top-1/2 w-[min(80%,220px)] -translate-x-1/2 -translate-y-1/2 rounded-[6px] bg-white px-6 py-4 text-center text-[16px] font-medium text-[#101411] sm:w-auto sm:px-10 sm:py-5 sm:text-[18px]">
+            <Link href="/sonke" className="absolute left-1/2 top-1/2 w-[min(80%,220px)] -translate-x-1/2 -translate-y-1/2 rounded-[6px] bg-white px-6 py-4 text-center text-[16px] font-medium text-[#101411] sm:w-auto sm:px-10 sm:py-5 sm:text-[18px]">
               Explore Sonke
             </Link>
           </motion.div>
@@ -391,7 +393,7 @@ function BdlSection() {
             <p className="text-[17px] text-[#202020] sm:text-[19px]">Foundation era</p>
             <h2 className="mt-5 text-[clamp(2rem,7vw,4rem)] font-normal leading-[1.04] tracking-[-0.04em] text-[#101411]">BDL Corp (Burdolar)</h2>
             <p className="mt-4 max-w-[640px] text-[16px] leading-[1.35] text-[#626262] sm:text-[19px]">
-              An early creative company and underground startup phase focused on marketing, strategy, videography, editing, and software development.
+              An early creative company and underground startup phase, also known as Burdolar, focused on marketing, strategy, videography, editing, and software development.
             </p>
           </div>
         </div>
@@ -401,6 +403,9 @@ function BdlSection() {
             <p className="text-[18px] leading-[1.25] tracking-[-0.025em] text-[#101411] sm:text-[22px]">
               BDL Corp became the training ground where skills were built and refined before Sonke.
             </p>
+            <a href="https://burdolar.co.za" target="_blank" rel="noreferrer" className="mt-6 inline-flex rounded-[6px] bg-[#101411] px-5 py-3 text-[15px] font-semibold text-white">
+              Visit Burdolar
+            </a>
             <div className="mt-6 flex flex-wrap gap-2">
               {['Marketing', 'Strategy', 'Videography', 'Editing', 'Software development'].map((item) => (
                 <span key={item} className="rounded-[4px] bg-[#f4f4f4] px-3 py-1.5 text-[13px] text-[#202020] sm:text-[15px]">{item}</span>
@@ -430,7 +435,7 @@ function InsightsSection() {
             <h2 className="mt-4 text-[clamp(2rem,7vw,3.5rem)] font-normal leading-[1.05] tracking-[-0.04em] text-[#101411]">Insights & Ideas</h2>
             <p className="mt-3 max-w-[540px] text-[16px] leading-[1.35] text-[#626262] sm:text-[18px]">Notes on building, design, development, media, and the road to Sonke.</p>
           </div>
-          <Link href="#contact" className="rounded-[8px] bg-[#101411] px-6 py-3.5 text-center text-[15px] font-semibold text-white transition-transform hover:scale-[1.02] sm:px-9 sm:py-4.5 sm:text-[17px]">See all notes</Link>
+          <Link href="/insights" className="rounded-[8px] bg-[#101411] px-6 py-3.5 text-center text-[15px] font-semibold text-white transition-transform hover:scale-[1.02] sm:px-9 sm:py-4.5 sm:text-[17px]">See all notes</Link>
         </div>
 
         <div className="grid gap-5 lg:grid-cols-2">
@@ -442,7 +447,7 @@ function InsightsSection() {
                   <span className="rounded-[4px] bg-[#f4f4f4] px-2.5 py-1">{post.tag}</span>
                   <span>{post.date}</span>
                 </div>
-                <h3 className="mt-4 text-[19px] leading-[1.15] tracking-[-0.03em] text-[#101411] sm:text-[22px]">{post.title}</h3>
+                <Link href={post.href} className="mt-4 block text-[19px] leading-[1.15] tracking-[-0.03em] text-[#101411] sm:text-[22px]">{post.title}</Link>
               </div>
             </motion.article>
           ))}
@@ -566,17 +571,19 @@ function Footer() {
               <div>
                 <p className="mb-4 text-[15px] font-semibold text-white/45">Projects</p>
                 <div className="grid gap-3.5 text-[17px] font-semibold">
-                  <Link href="#sonke">Sonke</Link>
-                  <Link href="#bdl-corp">BDL Corp</Link>
-                  <Link href="#bdl-corp">BDL News</Link>
+                  <Link href="/sonke">Sonke</Link>
+                  <Link href="/bdl-corp">BDL Corp</Link>
+                  <Link href="/bdl-news">BDL News</Link>
+                  <a href="https://www.sonkestudio.co.za" target="_blank" rel="noreferrer">Sonke Studio</a>
+                  <a href="https://burdolar.co.za" target="_blank" rel="noreferrer">Burdolar</a>
                 </div>
               </div>
               <div>
                 <p className="mb-4 text-[15px] font-semibold text-white/45">Utility</p>
                 <div className="grid gap-3.5 text-[17px] font-semibold">
-                  <Link href="#about">Story</Link>
-                  <Link href="#contact">Contact</Link>
-                  <Link href="#home">Back to top</Link>
+                  <Link href="/about">Story</Link>
+                  <Link href="/contact">Contact</Link>
+                  <Link href="/">Back to home</Link>
                 </div>
               </div>
             </div>
@@ -603,7 +610,7 @@ function Footer() {
             <span>LinkedIn</span>
             <span>GitHub</span>
           </div>
-          <p>Designed for Zama Shange. Powered by Sonke vision.</p>
+          <p>Under BDL Corp (Burdolar). Designed for Zama Shange.</p>
         </div>
       </Shell>
     </footer>

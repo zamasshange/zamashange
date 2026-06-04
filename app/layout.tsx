@@ -114,7 +114,7 @@ const jsonLd = {
         'https://www.burdolar.co.za'
       ],
       worksFor: [
-        { '@type': 'Organization', '@id': 'https://www.zamashange.co.za/#sonke', name: 'Sonke', url: 'https://www.sonkestudio.co.za', description: 'Modern digital platform and creative ecosystem founded in 2026' },
+        { '@type': 'Organization', '@id': 'https://www.zamashange.co.za/#sonke', name: 'Sonke', url: 'https://www.sonkestudio.co.za', description: 'AI tools, career, student, creator, and creative systems ecosystem' },
         { '@type': 'Organization', '@id': 'https://www.zamashange.co.za/#bdl', name: 'BDL Corp', url: 'https://www.burdolar.co.za', alternateName: 'Burdolar', description: 'Underground creative initiative focused on marketing, strategy, videography, and software development' }
       ],
       knowsAbout: ['Product Engineering', 'UI/UX Design', 'Digital Storytelling', 'Brand Strategy', 'Software Development', 'Videography']
@@ -128,7 +128,7 @@ const jsonLd = {
       potentialAction: {
         '@type': 'ContactAction',
         name: 'Contact',
-        target: 'https://www.zamashange.co.za/#contact'
+        target: 'https://www.zamashange.co.za/contact'
       }
     },
     {
@@ -136,7 +136,7 @@ const jsonLd = {
       '@id': 'https://www.zamashange.co.za/#sonke',
       name: 'Sonke',
       url: 'https://www.sonkestudio.co.za',
-      description: 'Modern digital platform and creative ecosystem founded in 2026 by Zama Shange',
+      description: 'AI tools, career, student, creator, and creative systems ecosystem founded by Zama Shange',
       foundingDate: '2026',
       founder: { '@type': 'Person', '@id': 'https://www.zamashange.co.za/#person' }
     },
