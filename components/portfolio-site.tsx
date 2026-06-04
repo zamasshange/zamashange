@@ -6,6 +6,7 @@ import { FormEvent, useState } from 'react'
 import { motion, type Variants } from 'framer-motion'
 import { ArrowUpRight, Mail, Menu, Phone, Plus, Send, X } from 'lucide-react'
 import logoImage from '@/app/zama_shange_logo.png'
+import zamaPic from '@/app/zamapic.jpg'
 
 const contact = {
   email: 'burdolar@gmail.com',
@@ -480,7 +481,7 @@ function TestimonialSection() {
           </motion.div>
           <motion.div whileHover={{ y: -4 }} className="rounded-[6px] border border-[#dedede] bg-white p-5 sm:p-6">
             <div className="flex items-center gap-4">
-              <div className="grid h-11 w-11 place-items-center rounded-full bg-[#101411] text-xs font-semibold text-white">ZS</div>
+              <Image src={zamaPic} alt="Zama Shange" className="h-11 w-11 rounded-full object-cover" />
               <div>
                 <h3 className="text-[19px] font-semibold text-[#101411]">Zama Shange</h3>
                 <p className="mt-0.5 text-[16px] text-[#626262]">Founder of Sonke</p>
