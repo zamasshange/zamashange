@@ -9,6 +9,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1,
+      images: [
+        {
+          url: `${baseUrl}/og-image.png`,
+          title: 'Zama Shange - Founder Portfolio',
+        },
+      ],
     },
   ]
 }
