@@ -24,12 +24,16 @@ export const metadata: Metadata = {
     'Zama Sonke',
     'Sonke Zama',
     'Zama AI',
+    'Zama founder',
     'founder portfolio',
     'creative builder',
     'designer',
     'developer',
     'South Africa',
     'BDL',
+    'digital agency South Africa',
+    'brand strategist',
+    'product engineer',
   ],
   robots: {
     index: true,
@@ -48,6 +52,8 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://www.zamashange.co.za',
     siteName: 'Zama Shange',
+    locale: 'en_ZA',
+    alternateLocale: 'en_US',
     images: [
       {
         url: '/og-image.png',
@@ -62,7 +68,12 @@ export const metadata: Metadata = {
     title: 'Zama Shange | Founder of Sonke, BDL Corp & Burdolar',
     description: 'Building systems, brands, and digital experiences from South Africa to the world.',
     images: ['/og-image.png'],
+    creator: '@zama_shange',
+    site: '@zama_shange',
   },
+  authors: [{ name: 'Zama Shange' }],
+  creator: 'Zama Shange',
+  publisher: 'Zama Shange',
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-icon.png',
@@ -81,22 +92,64 @@ export const viewport: Viewport = {
 // JSON-LD structured data for better SEO
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: 'Zama Shange',
-  url: 'https://www.zamashange.co.za',
-  jobTitle: 'Founder & Creative Builder',
-  description: 'Founder of Sonke, BDL Corp (Burdolar), designer, developer, and creative builder from South Africa.',
-  sameAs: [
-    'https://www.zamashange.co.za',
-  ],
-  worksFor: {
-    '@type': 'Organization',
-    name: ['Sonke', 'BDL Corp', 'Burdolar']
-  },
-  nationality: {
-    '@type': 'Country',
-    name: 'South Africa'
-  }
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': 'https://www.zamashange.co.za/#person',
+      name: 'Zama Shange',
+      url: 'https://www.zamashange.co.za',
+      jobTitle: 'Founder & Creative Builder',
+      description: 'Founder of Sonke, BDL Corp (Burdolar), designer, developer, and creative builder from South Africa.',
+      birthDate: '2007-06-20',
+      birthPlace: {
+        '@type': 'Place',
+        address: { '@type': 'PostalAddress', addressLocality: 'Durban', addressCountry: 'ZA' }
+      },
+      homeLocation: {
+        '@type': 'Place',
+        address: { '@type': 'PostalAddress', addressLocality: 'Johannesburg', addressCountry: 'ZA' }
+      },
+      sameAs: [
+        'https://www.sonkestudio.co.za',
+        'https://www.burdolar.co.za'
+      ],
+      worksFor: [
+        { '@type': 'Organization', '@id': 'https://www.zamashange.co.za/#sonke', name: 'Sonke', url: 'https://www.sonkestudio.co.za', description: 'Modern digital platform and creative ecosystem founded in 2026' },
+        { '@type': 'Organization', '@id': 'https://www.zamashange.co.za/#bdl', name: 'BDL Corp', url: 'https://www.burdolar.co.za', alternateName: 'Burdolar', description: 'Underground creative initiative focused on marketing, strategy, videography, and software development' }
+      ],
+      knowsAbout: ['Product Engineering', 'UI/UX Design', 'Digital Storytelling', 'Brand Strategy', 'Software Development', 'Videography']
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://www.zamashange.co.za/#website',
+      url: 'https://www.zamashange.co.za',
+      name: 'Zama Shange Portfolio',
+      publisher: { '@type': 'Person', '@id': 'https://www.zamashange.co.za/#person' },
+      potentialAction: {
+        '@type': 'ContactAction',
+        name: 'Contact',
+        target: 'https://www.zamashange.co.za/#contact'
+      }
+    },
+    {
+      '@type': 'Organization',
+      '@id': 'https://www.zamashange.co.za/#sonke',
+      name: 'Sonke',
+      url: 'https://www.sonkestudio.co.za',
+      description: 'Modern digital platform and creative ecosystem founded in 2026 by Zama Shange',
+      foundingDate: '2026',
+      founder: { '@type': 'Person', '@id': 'https://www.zamashange.co.za/#person' }
+    },
+    {
+      '@type': 'Organization',
+      '@id': 'https://www.zamashange.co.za/#bdl',
+      name: 'BDL Corp',
+      alternateName: 'Burdolar',
+      url: 'https://www.burdolar.co.za',
+      description: 'Underground creative initiative focused on marketing, strategy, videography, editing, and software development founded by Zama Shange',
+      founder: { '@type': 'Person', '@id': 'https://www.zamashange.co.za/#person' }
+    }
+  ]
 }
 
 export default function RootLayout({
