@@ -73,9 +73,16 @@ export const metadata: Metadata = {
   },
   manifest: '/site.webmanifest',
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512x512.png', sizes: '512x512', type: 'image/png' },
+    ],
     shortcut: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
 }
 
@@ -114,6 +121,12 @@ const jsonLd = {
       description: site.description,
       inLanguage: 'en-ZA',
       publisher: { '@id': `${site.url}/#person` },
+      logo: {
+        '@type': 'ImageObject',
+        url: `${site.url}/icon-192x192.png`,
+        width: 192,
+        height: 192,
+      },
     },
     {
       '@type': 'ProfessionalService',
@@ -135,6 +148,10 @@ export default function RootLayout({
   return (
     <html lang="en-ZA" className={`${openSans.variable} bg-background`}>
       <head>
+        <link rel="icon" type="image/png" sizes="48x48" href={`${site.url}/favicon-48x48.png`} />
+        <link rel="icon" type="image/png" sizes="96x96" href={`${site.url}/favicon-96x96.png`} />
+        <link rel="icon" href={`${site.url}/favicon.ico`} sizes="any" />
+        <link rel="apple-touch-icon" href={`${site.url}/apple-touch-icon.png`} sizes="180x180" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body className="font-sans antialiased overflow-x-hidden">

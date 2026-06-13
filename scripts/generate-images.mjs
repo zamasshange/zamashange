@@ -51,20 +51,17 @@ async function iconPng(logoBuffer, size) {
 async function generateImages() {
   console.log('Generating images...');
 
-  // Load the logo
   const logoBuffer = await sharp(logoPath).toBuffer();
 
-  // Generate OG Image (1200x630)
   await sharp(logoBuffer)
     .resize(1200, 630, {
       fit: 'contain',
-      background: { r: 255, g: 255, b: 255, alpha: 1 }
+      background: { r: 255, g: 255, b: 255, alpha: 1 },
     })
     .png()
     .toFile(path.join(appDir, 'og-image.png'));
   console.log('Created og-image.png (1200x630)');
 
-  // Generate Apple Touch Icon (180x180)
   const appleIcon = await iconPng(logoBuffer, 180);
   await fs.writeFile(path.join(appDir, 'apple-icon.png'), appleIcon);
   await fs.writeFile(path.join(publicDir, 'apple-touch-icon.png'), appleIcon);
@@ -74,6 +71,7 @@ async function generateImages() {
   const favicon16 = await iconPng(logoBuffer, 16);
   const favicon32 = await iconPng(logoBuffer, 32);
   const favicon48 = await iconPng(logoBuffer, 48);
+  const favicon96 = await iconPng(logoBuffer, 96);
   const icon192 = await iconPng(logoBuffer, 192);
   const icon512 = await iconPng(logoBuffer, 512);
   const favicon = createIco([
@@ -87,31 +85,30 @@ async function generateImages() {
   await fs.writeFile(path.join(publicDir, 'favicon-16x16.png'), favicon16);
   await fs.writeFile(path.join(publicDir, 'favicon-32x32.png'), favicon32);
   await fs.writeFile(path.join(publicDir, 'favicon-48x48.png'), favicon48);
+  await fs.writeFile(path.join(publicDir, 'favicon-96x96.png'), favicon96);
   await fs.writeFile(path.join(publicDir, 'favicon.png'), favicon48);
   await fs.writeFile(path.join(publicDir, 'icon-dark-32x32.png'), favicon32);
   await fs.writeFile(path.join(publicDir, 'icon-light-32x32.png'), favicon32);
   await fs.writeFile(path.join(publicDir, 'icon-192x192.png'), icon192);
   await fs.writeFile(path.join(publicDir, 'icon-512x512.png'), icon512);
-  await fs.writeFile(path.join(appDir, 'icon.png'), favicon32);
+  await fs.writeFile(path.join(appDir, 'icon.png'), favicon48);
   console.log('Created favicon.ico and PNG icon sizes');
 
   const manifest = {
     name: 'Zama Shange',
     short_name: 'Zama Shange',
     icons: [
-      { src: '/favicon.ico', sizes: 'any', type: 'image/x-icon' },
-      { src: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { src: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
-      { src: '/icon-512x512.png', sizes: '512x512', type: 'image/png' }
+      { src: '/favicon-48x48.png', sizes: '48x48', type: 'image/png', purpose: 'any' },
+      { src: '/favicon-96x96.png', sizes: '96x96', type: 'image/png', purpose: 'any' },
+      { src: '/icon-192x192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
+      { src: '/icon-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
+      { src: '/icon-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
     ],
     theme_color: '#ffffff',
     background_color: '#ffffff',
-    display: 'standalone'
+    display: 'standalone',
   };
-  await fs.writeFile(
-    path.join(publicDir, 'site.webmanifest'),
-    `${JSON.stringify(manifest, null, 2)}\n`
-  );
+  await fs.writeFile(path.join(publicDir, 'site.webmanifest'), `${JSON.stringify(manifest, null, 2)}\n`);
   console.log('Created site.webmanifest');
 
   console.log('All images generated successfully!');
