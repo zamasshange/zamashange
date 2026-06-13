@@ -1,5 +1,8 @@
 import Link from 'next/link'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import { SiteFooter, WhatsAppFab } from '@/components/site-footer'
+import { SiteHeader } from '@/components/site-header'
+import { navLinks } from '@/lib/site-content'
 
 type ContentPageProps = {
   eyebrow: string
@@ -19,95 +22,88 @@ type ContentPageProps = {
   facts?: string[]
 }
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Sonke', href: '/sonke' },
-  { label: 'BDL Corp', href: '/bdl-corp' },
-  { label: 'Contact', href: '/contact' },
-]
+function SmartLink({ link, primary }: { link: NonNullable<ContentPageProps['primaryLink']>; primary?: boolean }) {
+  const className = primary ? 'btn-primary' : 'btn-ghost'
 
-function SmartLink({ link, className }: { link: NonNullable<ContentPageProps['primaryLink']>; className: string }) {
   if (link.external) {
     return (
       <a href={link.href} target="_blank" rel="noreferrer" className={className}>
-        {link.label} <ArrowUpRight className="h-4 w-4" />
+        {link.label}
+        <ArrowRight className="h-3.5 w-3.5" />
       </a>
     )
   }
 
   return (
     <Link href={link.href} className={className}>
-      {link.label} <ArrowUpRight className="h-4 w-4" />
+      {link.label}
+      <ArrowRight className="h-3.5 w-3.5" />
     </Link>
   )
 }
 
 export function ContentPage({ eyebrow, title, intro, body, primaryLink, secondaryLink, facts = [] }: ContentPageProps) {
   return (
-    <main className="min-h-screen bg-white text-[#101411]">
-      <header className="border-b border-[#dedede] bg-white">
-        <div className="mx-auto flex h-20 w-[calc(100%-48px)] max-w-[1200px] items-center justify-between max-sm:w-[calc(100%-24px)]">
-          <Link href="/" className="text-[22px] font-semibold tracking-[-0.03em]">
-            Zama
-          </Link>
-          <nav className="hidden items-center gap-7 text-[15px] font-medium md:flex">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="hover:opacity-60">
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-          <Link href="/contact" className="rounded-[8px] bg-[#101411] px-4 py-2.5 text-[14px] font-semibold text-white">
-            Contact
-          </Link>
-        </div>
-      </header>
+    <div className="min-h-screen bg-background text-foreground">
+      <SiteHeader />
 
-      <section className="mx-auto grid w-[calc(100%-48px)] max-w-[1200px] gap-10 py-14 max-sm:w-[calc(100%-24px)] lg:grid-cols-[0.85fr_1.15fr] lg:py-20">
-        <div>
-          <p className="text-[17px] text-[#626262]">{eyebrow}</p>
-          <h1 className="mt-5 text-[clamp(2.4rem,7vw,5rem)] font-normal leading-[1.03] tracking-[-0.045em]">
-            {title}
-          </h1>
-          <p className="mt-6 max-w-[680px] text-[18px] leading-[1.45] text-[#626262]">{intro}</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            {primaryLink && <SmartLink link={primaryLink} className="inline-flex items-center gap-2 rounded-[8px] bg-[#101411] px-6 py-3.5 text-[15px] font-semibold text-white" />}
-            {secondaryLink && <SmartLink link={secondaryLink} className="inline-flex items-center gap-2 rounded-[8px] border border-[#dedede] px-6 py-3.5 text-[15px] font-semibold text-[#101411]" />}
-          </div>
-        </div>
-
-        <div className="grid gap-4">
-          {body.map((paragraph) => (
-            <p key={paragraph} className="rounded-[6px] border border-[#dedede] bg-[#f7f7f7] p-5 text-[17px] leading-[1.5] text-[#333]">
-              {paragraph}
-            </p>
-          ))}
-          {facts.length > 0 && (
-            <div className="mt-2 grid gap-3 sm:grid-cols-2">
-              {facts.map((fact) => (
-                <div key={fact} className="rounded-[6px] bg-[#101411] p-5 text-[16px] font-semibold leading-[1.35] text-white">
-                  {fact}
-                </div>
-              ))}
+      <section className="panel-hero border-b border-border pt-24 md:pt-28">
+        <div className="site-container pb-16 pt-8 md:pb-20">
+          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+            <div>
+              <p className="section-eyebrow">{eyebrow}</p>
+              <h1 className="mt-4 text-[clamp(2rem,6vw,3.5rem)] font-semibold leading-[1.05] tracking-[-0.03em]">{title}</h1>
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">{intro}</p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                {primaryLink && <SmartLink link={primaryLink} primary />}
+                {secondaryLink && <SmartLink link={secondaryLink} />}
+              </div>
             </div>
-          )}
+
+            <div className="grid gap-3">
+              {body.map((paragraph) => (
+                <p key={paragraph} className="card-elevated card-interactive p-5 text-[15px] leading-[1.7] text-muted-foreground sm:p-6 sm:text-base">
+                  {paragraph}
+                </p>
+              ))}
+              {facts.length > 0 && (
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {facts.map((fact) => (
+                    <div key={fact} className="card-elevated card-interactive border-primary/20 bg-primary/5 p-5 text-sm font-semibold leading-snug">
+                      {fact}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </section>
 
-      <footer className="border-t border-[#dedede] py-8">
-        <div className="mx-auto flex w-[calc(100%-48px)] max-w-[1200px] flex-col gap-3 text-[15px] text-[#626262] max-sm:w-[calc(100%-24px)] md:flex-row md:items-center md:justify-between">
-          <p>Under BDL Corp (Burdolar).</p>
-          <div className="flex flex-wrap gap-4">
-            <a href="https://www.sonkestudio.co.za" target="_blank" rel="noreferrer" className="hover:text-[#101411]">
-              sonkestudio.co.za
-            </a>
-            <a href="https://burdolar.co.za" target="_blank" rel="noreferrer" className="hover:text-[#101411]">
-              burdolar.co.za
-            </a>
+      <section className="page-section bg-muted/30">
+        <div className="site-container">
+          <p className="section-eyebrow">Explore</p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="discipline-pill hover:border-primary/40 hover:text-primary">
+                {link.label}
+              </Link>
+            ))}
+            <Link href="/" className="discipline-pill hover:border-primary/40 hover:text-primary">
+              Home
+            </Link>
+          </div>
+          <div className="mt-8">
+            <Link href="/contact" className="btn-primary">
+              Get in Touch
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
           </div>
         </div>
-      </footer>
-    </main>
+      </section>
+
+      <SiteFooter />
+      <WhatsAppFab />
+    </div>
   )
 }

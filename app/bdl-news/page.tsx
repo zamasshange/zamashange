@@ -4,16 +4,16 @@ export default function BdlNewsPage() {
   return (
     <ContentPage
       eyebrow="BDL News"
-      title="A media and broadcasting learning chapter."
-      intro="BDL News was a digital media branch connected to the BDL Corp era. It is presented as part of the founder story, not as an active media outlet."
+      title="Digital media — officially back online."
+      intro="BDL News is active again at bdlnews.online — a digital media and broadcasting platform connected to the BDL Corp ecosystem and Zama Shange's creative journey."
       body={[
-        'The branch explored digital media, broadcasting, publishing, and public-facing content. That made it a useful chapter for learning pace, responsibility, editing, and audience communication.',
-        'The project was later shut down due to legal complications. The site keeps the wording professional and factual, positioning BDL News as a learning phase that informed later work.',
-        "Its most important role in the portfolio is context: it shows how early media experiments contributed to Zama's current direction with Sonke and BDL Corp.",
+        'After an earlier chapter shaped by legal and operational lessons, BDL News has returned with a clearer editorial direction — news, culture, and stories built for a modern audience.',
+        'The platform sits alongside Sonke and BDL Corp as part of a wider creative systems story: media, product, and brand work growing from the same founder energy.',
+        'Visit bdlnews.online for the live site, latest coverage, and the current direction of the BDL News brand.',
       ]}
-      primaryLink={{ label: 'View BDL Corp', href: '/bdl-corp' }}
-      secondaryLink={{ label: 'Contact', href: '/contact' }}
-      facts={['Digital media branch', 'Part of the BDL Corp era', 'No longer active', 'Learning chapter']}
+      primaryLink={{ label: 'Visit bdlnews.online', href: 'https://bdlnews.online', external: true }}
+      secondaryLink={{ label: 'View BDL Corp', href: '/bdl-corp' }}
+      facts={['Live at bdlnews.online', 'Digital media & broadcasting', 'Part of the BDL Corp ecosystem', 'Founded by Zama Shange']}
     />
   )
 }

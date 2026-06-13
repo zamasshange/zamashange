@@ -2,9 +2,10 @@
   "name": "my-project",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
+    "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/generate-images.mjs && next build",
+    "generate:icons": "node scripts/generate-images.mjs",
     "start": "next start",
     "lint": "eslint ."
   },
